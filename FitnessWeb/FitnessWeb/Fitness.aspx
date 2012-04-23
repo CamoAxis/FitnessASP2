@@ -25,11 +25,11 @@
         <tr>
             <td class="style1">
         <asp:Button ID="buttonSortId" runat="server" Height="29px" 
-            Text="Sort By ID" Width="85px" />
+            Text="Sort By ID" Width="85px" onclick="buttonSortId_Click" />
         <asp:Button ID="buttonSortLoc" runat="server" Height="29px" 
-            Text="Sort By Location" Width="109px" />
+            Text="Sort By Location" Width="109px" onclick="buttonSortLoc_Click" />
         <asp:Button ID="buttonSortDate" runat="server" Height="29px"
-            Text="Sort By Date" Width="95px" />
+            Text="Sort By Date" Width="95px" onclick="buttonSortDate_Click" />
             </td>
             <td>
                 <asp:Label ID="Label3" runat="server" Text="Description"></asp:Label>
@@ -48,11 +48,11 @@
         <tr>
             <td class="style1">
     <asp:Button ID="buttonAddClass" runat="server" Height="29px" 
-        Text="Add A Class" Width="95px" />
+        Text="Add A Class" Width="95px" onclick="buttonAddClass_Click" />
     <asp:Button ID="buttonDeleteClass" runat="server" Height="29px" 
         Text="Delete a Class" Width="111px" />
     <asp:Button ID="buttonSave" runat="server" Height="29px" 
-        Text="Save All" Width="95px" />
+        Text="Save All" Width="95px" onclick="buttonSave_Click" />
             </td>
             <td></td>
         </tr>

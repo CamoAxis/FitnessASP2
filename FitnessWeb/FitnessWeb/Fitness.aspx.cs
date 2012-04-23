@@ -8,26 +8,165 @@ using System.Runtime.Serialization;
 using System.Text;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
+
 namespace FitnessWeb
 {
     public partial class Fitness : System.Web.UI.Page
     {
-        protected void Page_Load(object sender, EventArgs e)
+		//public List<FitnessClassOpportunity> m_opportunities = new List<FitnessClassOpportunity>();
+
+		// sort order for list 1=id, 2=loc, 3=date
+		//private static int m_sort = 1;
+		private static string m_serialize_file = @"class_opportunities.bin";
+		
+		protected void Page_Load(object sender, EventArgs e)
         {
+			LoadAll();
+			UpdateLists();
+			if (Session["sort"] == null) Session["sort"] = 1;
+		}
+			
+		/// <summary>
+		/// Updates displayed list of classes and whatever
+		/// </summary>
+		private void UpdateLists()
+		{
+			var L = Session["classes"] as List<FitnessClassOpportunity>;
+			if (L == null) L = new List<FitnessClassOpportunity>();
 
-        }
+			listClasses.Items.Clear();
+			System.Linq.IOrderedEnumerable<FitnessClassOpportunity> ops;
+			//switch statement to tell us that the default order, and then the order if another button were to be pressed.
+			var sort = Session["sort"] == null ? 1 : (int)Session["sort"];
+			switch (sort)
+			{
+				case 1:
+					ops = from o in L
+						  orderby o.id, o.start_date, o.location
+						  select o;
+					break;
+				case 2:
+					ops = from o in L
+						  orderby o.location, o.start_date, o.location
+						  select o;
+					break;
+				// case 3
+				default:
+					ops = from o in L
+						  orderby o.start_date, o.location
+						  select o;
+					break;
+			}
 
+			foreach (var op in ops)
+			{
+				// text label is created by opportunity.ToString() method
+				listClasses.Items.Add(op.ToString());
+			}
+			Session["classes"] = L;
+		}
+
+
+		private void LoadAll()
+		{
+			if (!File.Exists(m_serialize_file)) return;
+
+			// Open the file containing the data that you want to deserialize.
+			FileStream fs = new FileStream(m_serialize_file, FileMode.Open);
+			try
+			{
+				BinaryFormatter formatter = new BinaryFormatter();
+
+				// Deserialize the table from the file and 
+				// assign the reference to the local variable.
+				var L = (List<FitnessClassOpportunity>)formatter.Deserialize(fs);
+				Session["classes"] = L;
+			}
+			catch (SerializationException)
+			{
+				//MessageBox.Show(this, "Save error:: " + e.Message, "oops",
+				//	MessageBoxButtons.OK, MessageBoxIcon.Error);
+			}
+			finally
+			{
+				fs.Close();
+			}
+		}
+
+		protected void buttonAddClass_Click(object sender, EventArgs e)
+		{
+			Response.Redirect("FitnessOps.aspx");
+		}
+
+		protected void buttonSortId_Click(object sender, EventArgs e)
+		{
+			Session["sort"] = 1;
+			UpdateLists();
+		}
+
+		protected void buttonSortLoc_Click(object sender, EventArgs e)
+		{
+			Session["sort"] = 2;
+			UpdateLists();
+		}
+
+		protected void buttonSortDate_Click(object sender, EventArgs e)
+		{
+			Session["sort"] = 3;
+			UpdateLists();
+		}
+
+		protected void buttonSave_Click(object sender, EventArgs e)
+		{
+			SaveAll();
+		}
+
+		 //saveall function shows that when clicked all the classes will be saved into the file.
+		 private void SaveAll()
+		 {
+		     FileStream outFile;
+		     StreamWriter writer;
+
+		     outFile = new FileStream("class.txt", FileMode.Create,
+		                              FileAccess.Write);  
+
+		     writer = new StreamWriter(outFile);
+
+		     for (int i = 0; i < listClasses.Items.Count; i++)
+		     {
+		     writer.WriteLine(Convert.ToString(listClasses.Items[i]));
+		     }
+		     writer.Close();                       
+		     outFile.Close();
+
+		     FileStream fs = new FileStream(m_serialize_file, FileMode.Create);           
+
+		     // Construct a BinaryFormatter and use it to serialize the data to the stream.
+		     BinaryFormatter formatter = new BinaryFormatter();
+		     try
+		     {
+				 var L = Session["classes"] as List<FitnessClassOpportunity>;
+				 if (L == null) L = new List<FitnessClassOpportunity>();
+				 formatter.Serialize(fs, L);
+		     }
+		         //exception for any error.
+		     catch (SerializationException )
+		     {
+		         //MessageBox.Show(this, "Save error:: " + e.Message, "oops",
+		         //    MessageBoxButtons.OK, MessageBoxIcon.Error);
+		     }
+		     finally
+		     {
+		         fs.Close();
+		     }
+
+		 }
 
     }
 }
 //{
 //    public partial class Fitness : Form
 //    {
-//        public List<FitnessClassOpportunity> m_opportunities = new List<FitnessClassOpportunity>();
-		
-//        // sort order for list 1=id, 2=loc, 3=date
-//        private int m_sort = 1;
-//        private string m_serialize_file = @"class_opportunities.bin";
 
 //        public Fitness()
 //        {
@@ -44,39 +183,7 @@ namespace FitnessWeb
 //            UpdateLists();
 //        }
 
-//        /// <summary>
-//        /// Updates displayed list of classes and whatever
-//        /// </summary>
-//        private void UpdateLists()
-//        {
-//            listBox1.Items.Clear();
-//            System.Linq.IOrderedEnumerable<FitnessClassOpportunity> ops;
-//            //switch statement to tell us that the default order, and then the order if another button were to be pressed.
-//            switch (m_sort)
-//            {
-//                case 1:
-//                        ops = from o in m_opportunities
-//                              orderby o.id, o.start_date, o.location
-//                              select o;
-//                        break;
-//                case 2:
-//                        ops = from o in m_opportunities
-//                              orderby o.location, o.start_date, o.location
-//                              select o;
-//                        break;
-//                // case 3
-//                default:
-//                        ops = from o in m_opportunities
-//                              orderby o.start_date, o.location
-//                              select o;
-//                        break;
-//            }
 
-//            foreach(var op in ops) {
-//                // text label is created by opportunity.ToString() method
-//                listBox1.Items.Add(op);
-//            }
-//        }
 //        //m_sort for switch, just assigns a value of 1/2/3 to the buttons and updates lists after theyre clicked.
 //        private void button1_Click(object sender, EventArgs e)
 //        {
@@ -124,69 +231,7 @@ namespace FitnessWeb
 //        {
 //            SaveAll();
 //        }
-//        //saveall function shows that when clicked all the classes will be saved into the file.
-//        private void SaveAll()
-//        {
-//            FileStream outFile;
-//            StreamWriter writer;
-
-//            outFile = new FileStream("class.txt", FileMode.Create,
-//                                     FileAccess.Write);  
-          
-//            writer = new StreamWriter(outFile);
-
-//            for (int i = 0; i < listBox1.Items.Count; i++)
-//            {
-//            writer.WriteLine(Convert.ToString(listBox1.Items[i]));
-//            }
-//            writer.Close();                       
-//            outFile.Close();
-
-//            FileStream fs = new FileStream(m_serialize_file, FileMode.Create);           
-
-//            // Construct a BinaryFormatter and use it to serialize the data to the stream.
-//            BinaryFormatter formatter = new BinaryFormatter();
-//            try
-//            {
-//                formatter.Serialize(fs, m_opportunities);
-//            }
-//                //exception for any error.
-//            catch (SerializationException e)
-//            {
-//                MessageBox.Show(this, "Save error:: " + e.Message, "oops",
-//                    MessageBoxButtons.OK, MessageBoxIcon.Error);
-//            }
-//            finally
-//            {
-//                fs.Close();
-//            }
-
-//        }
 //        //loadall function loads classes automatically, no need for button on the UI, makes it more clean.
-//        private void LoadAll()
-//        {
-//            if (!File.Exists(m_serialize_file)) return;
-
-//            // Open the file containing the data that you want to deserialize.
-//            FileStream fs = new FileStream(m_serialize_file, FileMode.Open);
-//            try
-//            {
-//                BinaryFormatter formatter = new BinaryFormatter();
-
-//                // Deserialize the table from the file and 
-//                // assign the reference to the local variable.
-//                m_opportunities = (List<FitnessClassOpportunity>)formatter.Deserialize(fs);
-//            }
-//            catch (SerializationException e)
-//            {
-//                MessageBox.Show(this, "Save error:: " + e.Message, "oops",
-//                    MessageBoxButtons.OK, MessageBoxIcon.Error);
-//            }
-//            finally
-//            {
-//                fs.Close();
-//            }
-//        }
 
 //        private void Fitness_Load(object sender, EventArgs e)
 //        {

@@ -9,15 +9,43 @@ namespace FitnessWeb
 {
     public partial class FitnessOps : System.Web.UI.Page
     {
-        protected void Page_Load(object sender, EventArgs e)
+		// this is assigned by calling form, the container where we add an item
+		//public List<FitnessClassOpportunity> m_container;
+		
+		protected void Page_Load(object sender, EventArgs e)
         {
 
         }
 
-        protected void button2_Click(object sender, EventArgs e)
-        {
+		protected void buttonCancel_Click(object sender, EventArgs e)
+		{
+			Response.Redirect("Fitness.aspx");
+		}
 
-        }
+		protected void buttonAdd_Click(object sender, EventArgs e)
+		{
+			var op = new FitnessClassOpportunity();
+			op.id = TextBoxClsId.Text;
+			op.description = TextBoxDesc.Text;
+			op.location = TextBoxLoc.Text;
+			op.spaces = int.Parse(TextBoxSpaces.Text);
+			op.day_of_week = DropDownDayOfWeek.SelectedIndex;
+			op.time_hour = int.Parse(TextBoxTime.Text);
+			op.time_min = 0;
+			op.duration_minutes = int.Parse(TextBoxDuration.Text);
+			op.multiweek_class = CheckBoxMultiweek.Checked;
+			op.start_date = CalendarStart.SelectedDate;
+			op.number_of_sessions = int.Parse(TextBoxSessionsNum.Text);
+
+			var L = Session["classes"] as List<FitnessClassOpportunity>;
+			if (L == null) L = new List<FitnessClassOpportunity>();
+			L.Add(op);
+			Session["classes"] = L;
+
+			//m_container.Add(op);
+			Response.Redirect("Fitness.aspx");
+		}
+
     }
 }
 

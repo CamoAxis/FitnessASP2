@@ -13,6 +13,7 @@
     <RootNamespace>FitnessWeb</RootNamespace>
     <AssemblyName>FitnessWeb</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <UseIISExpress>false</UseIISExpress>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -72,6 +73,7 @@
     <Compile Include="FitnessClassOpportunities.asax.cs">
       <DependentUpon>FitnessClassOpportunities.asax</DependentUpon>
     </Compile>
+    <Compile Include="FitnessClassOpportunity.cs" />
     <Compile Include="FitnessOps.aspx.cs">
       <DependentUpon>FitnessOps.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

@@ -29,7 +29,7 @@
     <asp:Label ID="Label1" runat="server" Text="Class Id"></asp:Label>
             </td>
             <td>
-    <asp:TextBox ID="TextBox1" runat="server" Width="170px" 
+    <asp:TextBox ID="TextBoxClsId" runat="server" Width="170px" 
                     style="margin-left: 0px; margin-bottom: 0px"></asp:TextBox>
             </td>
         </tr>
@@ -38,7 +38,8 @@
     <asp:Label ID="Label2" runat="server" Text="Class Description"></asp:Label>
             </td>
             <td>
-                <asp:TextBox ID="TextBox9" runat="server" Height="71px" Rows="4" Width="333px"></asp:TextBox>
+                <asp:TextBox ID="TextBoxDesc" runat="server" Height="71px" Rows="4" 
+                    Width="333px"></asp:TextBox>
             </td>
         </tr>
         <tr>
@@ -46,7 +47,7 @@
     <asp:Label ID="Label3" runat="server" Text="Location"></asp:Label>
             </td>
             <td>
-    <asp:TextBox ID="TextBox3" runat="server" Width="332px"></asp:TextBox>
+    <asp:TextBox ID="TextBoxLoc" runat="server" Width="332px"></asp:TextBox>
             </td>
         </tr>
         <tr>
@@ -54,7 +55,7 @@
     <asp:Label ID="Label4" runat="server" Text="Spaces in Class"></asp:Label>
             </td>
             <td>
-    <asp:TextBox ID="TextBox4" runat="server" Width="170px"></asp:TextBox>
+    <asp:TextBox ID="TextBoxSpaces" runat="server" Width="170px"></asp:TextBox>
             </td>
         </tr>
         <tr>
@@ -62,7 +63,8 @@
     <asp:Label ID="Label5" runat="server" Text="Day of the Week"></asp:Label>
             </td>
             <td>
-                <asp:DropDownList ID="DropDownList1" runat="server" Height="25px" Width="175px">
+                <asp:DropDownList ID="DropDownDayOfWeek" runat="server" Height="25px" 
+                    Width="175px">
                     <asp:ListItem Value="0">Monday</asp:ListItem>
                     <asp:ListItem Value="1">Tuesday</asp:ListItem>
                     <asp:ListItem Value="2">Wednesday</asp:ListItem>
@@ -77,7 +79,8 @@
     <asp:Label ID="Label6" runat="server" Text="Time"></asp:Label>
             </td>
             <td>
-    <asp:TextBox ID="TextBox6" runat="server" Width="170px"></asp:TextBox>
+    <asp:TextBox ID="TextBoxTime" runat="server" Width="37px"></asp:TextBox>
+    <asp:Label ID="Label11" runat="server" Text=":00"></asp:Label>
             </td>
         </tr>
         <tr>
@@ -85,7 +88,8 @@
     <asp:Label ID="Label7" runat="server" Text="Duration"></asp:Label>
             </td>
             <td>
-    <asp:TextBox ID="TextBox7" runat="server" Width="170px"></asp:TextBox>
+    <asp:TextBox ID="TextBoxDuration" runat="server" Width="67px"></asp:TextBox>
+    <asp:Label ID="Label12" runat="server" Text="&amp;nbsp;minutes"></asp:Label>
             </td>
         </tr>
         <tr>
@@ -93,7 +97,7 @@
     <asp:Label ID="Label9" runat="server" Text="Multiweek Class"></asp:Label>
             </td>
             <td>
-    <asp:CheckBox ID="CheckBox1" runat="server" Text="Yes" />
+    <asp:CheckBox ID="CheckBoxMultiweek" runat="server" Text="Yes" />
             </td>
         </tr>
         <tr>
@@ -101,7 +105,7 @@
     <asp:Label ID="Label8" runat="server" Text="Start Date"></asp:Label>
             </td>
             <td>
-                <asp:Calendar ID="Calendar1" runat="server"></asp:Calendar>
+                <asp:Calendar ID="CalendarStart" runat="server"></asp:Calendar>
             </td>
         </tr>
         <tr>
@@ -109,17 +113,17 @@
     <asp:Label ID="Label10" runat="server" Text="Number of Sessions"></asp:Label>
             </td>
             <td class="style3">
-    <asp:TextBox ID="TextBox10" runat="server" Width="170px"></asp:TextBox>
+    <asp:TextBox ID="TextBoxSessionsNum" runat="server" Width="170px"></asp:TextBox>
             </td>
         </tr>
         <tr>
             <td class="style1">
-                &nbsp;</td>
-            <td>
-    <asp:Button ID="button2" runat="server" Height="29px" onclick="button2_Click" 
+    <asp:Button ID="buttonCancel" runat="server" Height="29px" onclick="buttonCancel_Click" 
         Text="Cancel" Width="75px" />
-    <asp:Button ID="button1" runat="server" Height="29px" Text="Add Class" 
-        Width="165px" />
+            </td>
+            <td>
+    <asp:Button ID="buttonAdd" runat="server" Height="29px" Text="Add Class" 
+        Width="165px" onclick="buttonAdd_Click" />
             </td>
         </tr>
     </table></form>
