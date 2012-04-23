@@ -1,0 +1,72 @@
+CET203 Software Development Assignment 3 (2011/12)
+
+This assignment contributes 30% to your final module mark and tests learning outcomes 1, 2, 3 & 4.
+
+Deadline: Monday 23rd April 2012 (Midnight via Sunspace)
+
+This assignment is designed to reflect on and assess concepts and skills carried forward from assignments 1 and 2, together with those introduced in Weeks 16 to 23 of this module.
+
+This assignment is split into two parts. Part A (worth 14 marks) is a design & reporting task, which culminates in the creation of UML sequence diagrams, diagram descriptions, testing description and user guide. Part B (worth 16 marks) is an ASP.NET programming task to be implemented in Visual Studio. You will be provided (via Sunspace) with a Visual Studio C# project which you are required to adapt to meet the requirements of this assignment.
+
+
+Scenario
+
+You are working for the local county council in their IT department. One service the council provides is an electronic list of forthcoming community fitness class opportunities. This is subscribed to by local health and fitness professionals so they can contact the venue and book their clients onto appropriate classes. Currently, the fitness class list is distributed as a flat text file each month to the subscribers (by sending the file as an email attachment).
+
+A single-user, stand-alone system  has already been developed to enable the council’s Community Event Coordinator to manage the list and generate the text files but the process of emailing these text files to the subscribers is still carried out manually. [This is the system which you were required to develop in Assignment 2.]
+
+Due to recent pressure on the council to make cost savings they have decided that the role of the Community Event Coordinator could be replaced by a web-based client-server system where subscribers can add fitness class opportunities themselves and view the reports generated directly in the web browser (without the need for them to be emailed).
+
+You have been provided with a UML class diagram (see Appendix A) and code for the current single-user C# forms application (this can be downloaded the Assessment folder in Sunspace) and tasked with modifying it to incorporate the client-server functionality specified using ASP.NET. In order to achieve this you will need to replace the two classes FitnessClassManagerForm and AddFitnessClassForm with appropriate HTML/ASP.NET functionality.
+
+
+Part A - Report
+
+Write a report, in either Word or PDF format, which contains the following sections:
+
+UML Sequence Diagrams (6 Marks)
+A set of three interaction diagrams which model the dynamic behaviour of the following back-end functions of this system:
+
+Adding a new fitness class to the system
+Saving the data to file
+Generating the text reports
+
+Hand drawn diagrams are acceptable but must be neat and clearly legible and then scanned for online submission. You may use a UML drawing tool e.g. Software Ideas Modeller for this task but if you do so then the UML notation used must be consistent with that covered in the module and you should export the diagram to an image file which is embedded within the report document.
+
+Diagram Descriptions (3 marks)
+
+A 150 word (maximum) textual description for each of the above diagrams (450 words maximum in total), explaining the entities shown and the interactions between them.
+
+Testing Description (3 marks)
+
+A written set of tests (including sample data) that will be executed manually by a third party (e.g. the council management). These tests must demonstrate fully the functionality of your application. They do not need to be automated via the unit testing suite.
+
+User Guide (2 marks)
+
+A short user guide (200 words maximum) for your application including the details of where any data files and output reports are stored. [Please note this user guide attracts very few marks but will be used to help the marker run and assess your system.]
+
+
+Part B – Implementation 
+
+Client-Server Application (8 marks)
+
+Implement an ASP.NET front-end to the system, which executes in a browser and provides the following functionality:
+Add and save the details of a new fitness class opportunity.
+Generate the following reports. These can be saved initially as flat text files as in the existing system but should be loaded into an appropriately-formatted HTML page for the subscriber to view:
+A list of all fitness class opportunities (sorted by id)
+A list of all fitness class opportunities for a particular day of the week
+A list of all fitness class opportunities at a particular location
+
+Validation (8 marks)
+
+Implement validation on the input forms which is validated on the server-side to ensure that only appropriate fitness class data is added to the system.
+
+
+Submission - Monday 23rd April 2012, midnight.
+
+Part A should be provided as a single document in either Word or PDF (if you use a UML drawing tool then you MUST export it as an image and embed it in the report rather than submitting tool-specific files) and uploaded to Sunspace by the specified hand-in date, using the assignment icon provided in the assessment area.
+
+Part B should be submitted as a single Visual C# solution (version 2008 or 2010). It should be zipped and uploaded to Sunspace by the specified hand-in date, using the assignment icon provided in the assessment area. Use of code previously submitted for this module (Assignment 2) is allowed but you must ensure that it meets the design specification (UML class diagram) provided in terms of structure and naming of classes/variables/methods.
+
+Appendix A – UML Class Diagram for Single-User Forms Application provided as a starting point
+
