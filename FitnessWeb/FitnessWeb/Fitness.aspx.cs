@@ -61,7 +61,8 @@ namespace FitnessWeb
 			foreach (var op in ops)
 			{
 				// text label is created by opportunity.ToString() method
-				listClasses.Items.Add(op.ToString());
+				var listitem = new ListItem(op.ToString(), op.id);
+				listClasses.Items.Add(listitem);
 			}
 			Session["classes"] = L;
 		}
@@ -160,6 +161,30 @@ namespace FitnessWeb
 		         fs.Close();
 		     }
 
+		 }
+
+		 protected void listClasses_SelectedIndexChanged(object sender, EventArgs e)
+		 {
+			 var selecteditm = listClasses.Items.FindByValue(Request.Params["listClasses"]);
+			 listClasses.SelectedIndex = listClasses.Items.IndexOf(selecteditm);
+
+			 textClassDescr.Text = "";
+			 if (listClasses.SelectedIndex < 0)
+			 {
+				 return;
+			 }
+			 var opid = listClasses.SelectedItem.Value;
+
+			 var L = Session["classes"] as List<FitnessClassOpportunity>;
+			 if (L == null) L = new List<FitnessClassOpportunity>();
+	
+			 var op = from o in L
+					  where o.id == opid
+					  select o;
+			 if (op.Count() > 0)
+			 {
+				 textClassDescr.Text = op.First().Present();
+			 }
 		 }
 
     }

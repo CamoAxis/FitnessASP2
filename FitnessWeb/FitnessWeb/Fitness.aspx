@@ -37,12 +37,13 @@
         </tr>
         <tr>
             <td class="style1">
-    <asp:ListBox ID="listClasses" runat="server" Height="320px" Width="320px">
-    </asp:ListBox>
+
+    <asp:ListBox ID="listClasses" runat="server" Height="320px" Width="320px" 
+                    onselectedindexchanged="listClasses_SelectedIndexChanged" AutoPostBack="true">
+        </asp:ListBox>
             </td>
-            <td>
-    <asp:TextBox ID="textClassDescr" runat="server" ForeColor="Black" Height="320px" 
-        Width="320px" ReadOnly="True"></asp:TextBox>
+            <td valign="top">
+                <asp:Label ID="textClassDescr" runat="server" Text="..."></asp:Label>
             </td>
         </tr>
         <tr>
