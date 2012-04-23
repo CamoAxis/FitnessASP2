@@ -1,0 +1,5 @@
+c:\users\jonno\documents\visual studio 2010\Projects\FitnessWeb\FitnessWeb\bin\FitnessWeb.dll
+c:\users\jonno\documents\visual studio 2010\Projects\FitnessWeb\FitnessWeb\bin\FitnessWeb.pdb
+c:\users\jonno\documents\visual studio 2010\Projects\FitnessWeb\FitnessWeb\obj\Debug\ResolveAssemblyReference.cache
+c:\users\jonno\documents\visual studio 2010\Projects\FitnessWeb\FitnessWeb\obj\Debug\FitnessWeb.dll
+c:\users\jonno\documents\visual studio 2010\Projects\FitnessWeb\FitnessWeb\obj\Debug\FitnessWeb.pdb
