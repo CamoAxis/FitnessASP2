@@ -31,84 +31,84 @@ namespace FitnessWeb {
         protected global::System.Web.UI.WebControls.Label Label1;
         
         /// <summary>
-        /// Label2 control.
+        /// buttonSortId control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label2;
+        protected global::System.Web.UI.WebControls.Button buttonSortId;
         
         /// <summary>
-        /// button1 control.
+        /// buttonSortLoc control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button button1;
+        protected global::System.Web.UI.WebControls.Button buttonSortLoc;
         
         /// <summary>
-        /// button2 control.
+        /// buttonSortDate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button button2;
+        protected global::System.Web.UI.WebControls.Button buttonSortDate;
         
         /// <summary>
-        /// button3 control.
+        /// Label3 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button button3;
+        protected global::System.Web.UI.WebControls.Label Label3;
         
         /// <summary>
-        /// listBox1 control.
+        /// listClasses control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListBox listBox1;
+        protected global::System.Web.UI.WebControls.ListBox listClasses;
         
         /// <summary>
-        /// textBox1 control.
+        /// textClassDescr control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox textBox1;
+        protected global::System.Web.UI.WebControls.TextBox textClassDescr;
         
         /// <summary>
-        /// button4 control.
+        /// buttonAddClass control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button button4;
+        protected global::System.Web.UI.WebControls.Button buttonAddClass;
         
         /// <summary>
-        /// button5 control.
+        /// buttonDeleteClass control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button button5;
+        protected global::System.Web.UI.WebControls.Button buttonDeleteClass;
         
         /// <summary>
-        /// button6 control.
+        /// buttonSave control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button button6;
+        protected global::System.Web.UI.WebControls.Button buttonSave;
     }
 }

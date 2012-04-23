@@ -3,3 +3,8 @@ c:\users\jonno\documents\visual studio 2010\Projects\FitnessWeb\FitnessWeb\bin\F
 c:\users\jonno\documents\visual studio 2010\Projects\FitnessWeb\FitnessWeb\obj\Debug\ResolveAssemblyReference.cache
 c:\users\jonno\documents\visual studio 2010\Projects\FitnessWeb\FitnessWeb\obj\Debug\FitnessWeb.dll
 c:\users\jonno\documents\visual studio 2010\Projects\FitnessWeb\FitnessWeb\obj\Debug\FitnessWeb.pdb
+D:\camou\FitnessASP2\FitnessWeb\FitnessWeb\bin\FitnessWeb.dll
+D:\camou\FitnessASP2\FitnessWeb\FitnessWeb\bin\FitnessWeb.pdb
+D:\camou\FitnessASP2\FitnessWeb\FitnessWeb\obj\Debug\FitnessWeb.csprojResolveAssemblyReference.cache
+D:\camou\FitnessASP2\FitnessWeb\FitnessWeb\obj\Debug\FitnessWeb.dll
+D:\camou\FitnessASP2\FitnessWeb\FitnessWeb\obj\Debug\FitnessWeb.pdb

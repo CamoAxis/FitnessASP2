@@ -17,39 +17,6 @@ namespace FitnessWeb
 
         }
 
-        protected void button1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        protected void button2_Click(object sender, EventArgs e)
-        {
-             
-        }
-
-        protected void button3_Click(object sender, EventArgs e)
-        {
-        }
-
-        protected void ListBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        protected void button4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        protected void button5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        protected void button6_Click(object sender, EventArgs e)
-        {
-
-        }
 
     }
 }

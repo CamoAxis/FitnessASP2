@@ -5,38 +5,58 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
+    <style type="text/css">
+        .style1
+        {
+            width: 367px;
+        }
+    </style>
 </head>
 <body>
     <form id="form1" runat="server">
-    <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <asp:Label ID="Label2" runat="server" Text="Label"></asp:Label>
-&nbsp;<p>
-        <asp:Button ID="button1" runat="server" Height="57px" onclick="Button1_Click" 
-            Text="Sort By ID" Width="95px" />
-&nbsp;&nbsp;
-        <asp:Button ID="button2" runat="server" Height="57px" onclick="Button2_Click" 
-            Text="Sort By Location" Width="101px" />
-&nbsp;&nbsp;&nbsp;
-        <asp:Button ID="button3" runat="server" Height="57px" onclick="Button3_Click" 
+    <table border="0" style="width:100%;">
+        <tr>
+            <td class="style1">
+    <asp:Label ID="Label1" runat="server" Text="Available Classes"></asp:Label>
+            </td>
+            <td>
+                &nbsp;</td>
+        </tr>
+        <tr>
+            <td class="style1">
+        <asp:Button ID="buttonSortId" runat="server" Height="29px" 
+            Text="Sort By ID" Width="85px" />
+        <asp:Button ID="buttonSortLoc" runat="server" Height="29px" 
+            Text="Sort By Location" Width="109px" />
+        <asp:Button ID="buttonSortDate" runat="server" Height="29px"
             Text="Sort By Date" Width="95px" />
-&nbsp;</p>
-    <asp:ListBox ID="listBox1" runat="server" Height="320px" 
-        onselectedindexchanged="ListBox1_SelectedIndexChanged" Width="320px">
+            </td>
+            <td>
+                <asp:Label ID="Label3" runat="server" Text="Description"></asp:Label>
+            </td>
+        </tr>
+        <tr>
+            <td class="style1">
+    <asp:ListBox ID="listClasses" runat="server" Height="320px" Width="320px">
     </asp:ListBox>
-&nbsp;&nbsp;&nbsp;&nbsp;
-    <asp:TextBox ID="textBox1" runat="server" ForeColor="Black" Height="320px" 
-        Width="320px"></asp:TextBox>
-    <br />
-    <br />
-    <asp:Button ID="button4" runat="server" Height="57px" onclick="button4_Click" 
+            </td>
+            <td>
+    <asp:TextBox ID="textClassDescr" runat="server" ForeColor="Black" Height="320px" 
+        Width="320px" ReadOnly="True"></asp:TextBox>
+            </td>
+        </tr>
+        <tr>
+            <td class="style1">
+    <asp:Button ID="buttonAddClass" runat="server" Height="29px" 
         Text="Add A Class" Width="95px" />
-&nbsp;&nbsp;&nbsp;
-    <asp:Button ID="button5" runat="server" Height="57px" onclick="button5_Click" 
-        Text="Delete a Class" Width="95px" />
-&nbsp;&nbsp;&nbsp;
-    <asp:Button ID="button6" runat="server" Height="57px" onclick="button6_Click" 
+    <asp:Button ID="buttonDeleteClass" runat="server" Height="29px" 
+        Text="Delete a Class" Width="111px" />
+    <asp:Button ID="buttonSave" runat="server" Height="29px" 
         Text="Save All" Width="95px" />
+            </td>
+            <td></td>
+        </tr>
+    </table>
     </form>
 </body>
 </html>
