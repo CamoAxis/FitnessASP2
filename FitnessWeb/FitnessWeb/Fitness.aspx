@@ -51,7 +51,7 @@
     <asp:Button ID="buttonAddClass" runat="server" Height="29px" 
         Text="Add A Class" Width="95px" onclick="buttonAddClass_Click" />
     <asp:Button ID="buttonDeleteClass" runat="server" Height="29px" 
-        Text="Delete a Class" Width="111px" />
+        Text="Delete a Class" Width="111px" onclick="buttonDeleteClass_Click" />
     <asp:Button ID="buttonSave" runat="server" Height="29px" 
         Text="Save All" Width="95px" onclick="buttonSave_Click" />
             </td>

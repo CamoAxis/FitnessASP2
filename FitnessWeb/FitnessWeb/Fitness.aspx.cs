@@ -163,11 +163,19 @@ namespace FitnessWeb
 
 		 }
 
-		 protected void listClasses_SelectedIndexChanged(object sender, EventArgs e)
+		/// <summary>
+		/// Extracts a field from POSTed form, and attempts to select the corresponding
+		/// line in listClasses, searching by opportunity.ID
+		/// </summary>
+		 private void SelectSelectedItem()
 		 {
 			 var selecteditm = listClasses.Items.FindByValue(Request.Params["listClasses"]);
 			 listClasses.SelectedIndex = listClasses.Items.IndexOf(selecteditm);
+		 }
 
+		 protected void listClasses_SelectedIndexChanged(object sender, EventArgs e)
+		 {
+			 SelectSelectedItem();
 			 textClassDescr.Text = "";
 			 if (listClasses.SelectedIndex < 0)
 			 {
@@ -185,6 +193,32 @@ namespace FitnessWeb
 			 {
 				 textClassDescr.Text = op.First().Present();
 			 }
+		 }
+
+		 protected void buttonDeleteClass_Click(object sender, EventArgs e)
+		 {
+			 SelectSelectedItem();
+			 if (listClasses.SelectedIndex < 0) return;
+
+			 var L = Session["classes"] as List<FitnessClassOpportunity>;
+			 if (L == null) L = new List<FitnessClassOpportunity>();
+
+			 /*
+			 var newL = from o in L
+					where o.id != listClasses.SelectedItem.Value
+					select o;
+
+			 L.Clear();
+			 foreach (var Litem in newL) L.Add(Litem);
+			 */
+			 L = L.FindAll(
+				delegate(FitnessClassOpportunity fop)
+				{
+					return fop.id != listClasses.SelectedItem.Value;
+				});
+
+			 Session["classes"] = L;
+			 Response.Redirect("Fitness.aspx");
 		 }
 
     }
